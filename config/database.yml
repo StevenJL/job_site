@@ -80,6 +80,6 @@ test:
 #
 production:
   <<: *default
-  database: job_site_production
-  username: job_site
-  password: <%= ENV['JOB_SITE_DATABASE_PASSWORD'] %>
+  database: fountain-job-site_production
+  username: fountain-job-site
+  password: <%= ENV['FOUNTAIN-JOB-SITE_DATABASE_PASSWORD'] %>
