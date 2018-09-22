@@ -6,6 +6,7 @@ import WelcomePageContainer from "./welcome_page_container";
 import AccountContainer from "./account_container";
 import AddJobFormContainer from "./add_job_form_container";
 import Navbar from "./navbar";
+import Footer from "./footer";
 
 const App = () => (
   <div className="app-component">
@@ -19,6 +20,7 @@ const App = () => (
       <ProtectedRoute path="/add_job" component={AddJobFormContainer} />
       <Route path="/" component={WelcomePageContainer} />
     </Switch>
+    <Footer />
   </div>
 );
 

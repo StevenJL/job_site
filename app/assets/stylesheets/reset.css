@@ -40,3 +40,15 @@ img {
 a {
   text-decoration: none;
 }
+
+#footer {
+  position: absolute;
+  padding: 10px 0;
+  bottom: 0;
+  width: 100%;
+  background: white;
+}
+
+.icon {
+  width: 50px;
+}
