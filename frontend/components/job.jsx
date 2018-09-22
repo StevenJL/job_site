@@ -6,27 +6,29 @@ class Job extends React.Component {
   }
 
   handleSubmit(e) {
+    const { job, updateJobIndexState, createApplication } = this.props;
     e.preventDefault();
-    this.props
-      .createApplication(this.props.job.id)
-      .then(res => this.props.updateJobIndexState(res.application.jobId));
+    createApplication(job.id).then(res =>
+      updateJobIndexState(res.application.jobId)
+    );
   }
 
   render() {
+    const { job, currentUser } = this.props;
     return (
       <div>
-        <h2>Position: {this.props.job.title}</h2>
-        {this.props.currentUser.employer ? null : (
+        <h2>Position: {job.title}</h2>
+        {currentUser.employer ? null : (
           <span>
-            <span>Employer: {this.props.job.employerFirstName} </span>
-            <span>{this.props.job.employerLastName}</span>
+            <span>Employer: {job.employerFirstName} </span>
+            <span>{job.employerLastName}</span>
             <br />
           </span>
         )}
         <p>
-          <b>Job Description:</b> {this.props.job.description}
+          <b>Job Description:</b> {job.description}
         </p>
-        {this.props.currentUser.employer ? null : (
+        {currentUser.employer ? null : (
           <button onClick={e => this.handleSubmit(e)}>Apply</button>
         )}
       </div>

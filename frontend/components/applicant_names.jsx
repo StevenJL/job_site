@@ -1,12 +1,12 @@
 import React from "react";
 
-const ApplicantNames = props => {
+const ApplicantNames = ({ names }) => {
   return (
     <div>
-      {props.names ? (
+      {names ? (
         <div>
           <h3>Applicants:</h3>
-          <ul>{props.names.map(name => <li>{name}</li>)}</ul>
+          <ul>{names.map(name => <li>{name}</li>)}</ul>
         </div>
       ) : null}
     </div>

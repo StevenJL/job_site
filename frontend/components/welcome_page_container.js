@@ -4,12 +4,9 @@ import WelcomePage from "./welcome_page";
 import { logout } from "../actions/session_actions";
 
 const mapStateToProps = state => ({
-  loggedIn: Boolean(state.session.currentUser),
-  currentUser: state.session.currentUser
+  loggedIn: Boolean(state.session.currentUser)
 });
 
-const mapDispatchToProps = dispatch => ({
-  logout: () => dispatch(logout())
-});
+const mapDispatchToProps = dispatch => ({});
 
 export default connect(mapStateToProps, mapDispatchToProps)(WelcomePage);

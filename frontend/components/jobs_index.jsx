@@ -22,33 +22,28 @@ class JobsIndex extends React.Component {
   }
 
   render() {
-    let openJobs = [];
-    if (this.props.currentUser.appliedJobs) {
-      const jobs = this.props.currentUser.appliedJobs.map(jobId => {
-        return this.props.jobs[jobId];
-      });
-    }
+    const { currentUser, jobs, createApplication } = this.props;
 
-    if (!this.props.jobs) {
+    if (!jobs) {
       return <div>There are no jobs.</div>;
     }
     return (
       <div>
         <h1>Jobs</h1>
-        {this.props.currentUser.employer ? (
+        {currentUser.employer ? (
           <Link to="/add_job">
             <button>+ Post Job</button>
           </Link>
         ) : null}
         <ul>
-          {this.props.jobs.map(job => {
-            return this.props.currentUser.appliedJobs ? (
+          {jobs.map(job => {
+            return currentUser.appliedJobs ? (
               this.state.appliedJobs.includes(job.id) ? null : (
                 <li>
                   <Job
                     updateJobIndexState={this.updateJobIndexState}
-                    createApplication={this.props.createApplication}
-                    currentUser={this.props.currentUser}
+                    createApplication={createApplication}
+                    currentUser={currentUser}
                     job={job}
                   />
                   _________________
@@ -58,8 +53,8 @@ class JobsIndex extends React.Component {
               <li>
                 <Job
                   updateJobIndexState={this.updateJobIndexState}
-                  createApplication={this.props.createApplication}
-                  currentUser={this.props.currentUser}
+                  createApplication={createApplication}
+                  currentUser={currentUser}
                   job={job}
                 />
                 <ApplicantNames names={job.applicantNames} />
