@@ -24,6 +24,13 @@ section {
   vertical-align: baseline;
 }
 
+html,
+body {
+  height: 100%;
+  position: relative;
+  width: 100%;
+}
+
 body {
   line-height: 1.5;
 }
@@ -41,9 +48,16 @@ a {
   text-decoration: none;
 }
 
+#app-component {
+  min-height: 95vh;
+  overflow: hidden;
+  display: block;
+  position: relative;
+  padding-bottom: 20px;
+}
+
 #footer {
   position: absolute;
-  padding: 10px 0;
   bottom: 0;
   width: 100%;
   background: white;

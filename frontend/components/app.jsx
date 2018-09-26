@@ -9,7 +9,7 @@ import Navbar from "./navbar";
 import Footer from "./footer";
 
 const App = () => (
-  <div className="app-component">
+  <div id="app-component">
     <Navbar />
     <Switch>
       <AuthRoute path="/login/admin" component={SessionFormContainer} />
