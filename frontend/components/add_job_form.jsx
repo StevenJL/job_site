@@ -1,4 +1,5 @@
 import React from "react";
+import { withRouter } from "react-router-dom";
 
 class AddJobForm extends React.Component {
   constructor(props) {
@@ -12,9 +13,11 @@ class AddJobForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const job = Object.assign({}, this.state);
-    this.props
-      .createJob(this.props.currentUser.id, { job })
-      .then(response => this.setState({ title: "", description: "" }));
+    this.props.createJob(this.props.currentUser.id, { job }).then(response =>
+      this.setState({ title: "", description: "" }, () => {
+        this.props.history.push("/account");
+      })
+    );
   }
 
   updateField(field) {
@@ -64,4 +67,4 @@ class AddJobForm extends React.Component {
   }
 }
 
-export default AddJobForm;
+export default withRouter(AddJobForm);
